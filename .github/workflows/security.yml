@@ -27,3 +27,9 @@ jobs:
         run: |
           docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:latest \
             git /repo --config /repo/.gitleaks.toml --redact -v --exit-code=2
+
+  audit:
+    name: audit
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm audit --audit-level=high
